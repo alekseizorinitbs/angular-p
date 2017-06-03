@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Rx'
 import {CaseService} from './services/case.service'
 import {Http} from '@angular/http'
 import {PortalComponent} from './portal/portal.component';
-import {HeaderComponent} from './header/header.component'
+import {HeaderComponent} from './components/header/header.component'
 
 @Component({
     selector: 'my-app',
