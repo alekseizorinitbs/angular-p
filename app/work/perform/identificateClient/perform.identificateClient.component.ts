@@ -8,6 +8,7 @@ import {Http} from '@angular/http'
 import {Assignment} from '../../../model/assignments.model'
 import {AssignmentService} from '../../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
+import {Local_RU} from '../../../services/local_ru.service'
 
 @Component({
   selector: 'gp-client_perform',
@@ -29,9 +30,8 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
 
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
-  protected cacheService: CacheService){
-      this.caseData_ru = new Object();
-      this.caseData_ru.pyStatusWork = {};
+  protected cacheService: CacheService, private _localRuService: Local_RU){
+      
     }
 
     onDeletePhone(index){
@@ -82,10 +82,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     }
 
     localizePyStatusWork(caseData){
-
-        if (caseData.content.pyStatusWork == "New") this.caseData_ru.pyStatusWork = "Ввод данных";
-        if (caseData.content.pyStatusWork == "Open")  this.caseData_ru.pyStatusWork = "Клиент идентифицирован";
-
+        this._localRuService.localize_GPNClient(caseData);
       }
 
       onRequestClicked(id){
@@ -95,7 +92,6 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
 
     performAssignment(){
       this.assignmentService.performAssignment(this.caseData,this.caseData.assignments[0].ID,this.caseData.assignments[0].actions[0].ID).subscribe(data =>{
-        console.log(data);
       });
     }
 

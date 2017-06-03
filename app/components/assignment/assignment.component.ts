@@ -7,6 +7,7 @@ import {Http} from '@angular/http'
 import {Assignment} from '../../model/assignments.model'
 import {AssignmentService} from '../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
+import {Local_RU} from '../../services/local_ru.service'
 
 @Component({
   selector: 'gp-assignment',
@@ -19,7 +20,7 @@ export class AssignmentComponent implements OnInit{
     client;
 
     constructor(private _caseService: CaseService, private _router: Router,
-      private _assignmentService: AssignmentService, private _cacheService : CacheService){
+      private _assignmentService: AssignmentService, private _cacheService : CacheService, private _local_ru: Local_RU){
 
         }
 

@@ -17,6 +17,7 @@ import {GPNRequest} from './model/gpn_request.model'
 import {Assignment_Perform_CreateRequest_Component} from './work/perform/identificateClient/perform.createRequest.component'
 import {Assignment_Perform_InitializeClient_Component} from './work/perform/identificateClient/perform.identificateClient.component'
 import {LoginComponent} from './portal/login.component'
+import {Local_RU} from './services/local_ru.service'
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule, ReactiveFormsModule, HttpModule, routing ],
@@ -24,6 +25,6 @@ import {LoginComponent} from './portal/login.component'
               Assignment_Perform_CreateRequest_Component, LoginComponent,
                  Assignment_Perform_InitializeClient_Component],
   bootstrap:    [ AppComponent ],
-  providers:    [  CaseService, AssignmentService, CacheService ]
+  providers:    [  CaseService, AssignmentService, CacheService, Local_RU ]
 })
 export class AppModule { }

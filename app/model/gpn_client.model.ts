@@ -1,4 +1,6 @@
-export class GPNClientContent{
+import {GPNBaseContent, GPNBase} from './gpn_base.model'
+
+export class GPNClientContent extends GPNBaseContent{
   HeadLegalName="";
   Industry="";
   ContactList="";
@@ -6,13 +8,12 @@ export class GPNClientContent{
   pyWorkParty;
 }
 
-export class GPNClient{
-  caseTypeID : String;
-  processID: String;
+export class GPNClient extends GPNBase{
   content: GPNClientContent;
     childCases;
 
   constructor(){
+    super();
     this.content = new GPNClientContent();
     this.content.HeadLegalName="";
     this.content.Industry="";
