@@ -2,7 +2,6 @@
 
 import {Component, AfterViewInit} from '@angular/core';
 import {Observable} from 'rxjs/Rx'
-import {PostService} from './postService/post.service'
 import {CaseService} from './caseService/case.service'
 import {Http} from '@angular/http'
 import {PortalComponent} from './portal/portal.component';
@@ -17,7 +16,7 @@ export class AppComponent/* implements AfterViewInit*/  {
 
   caseID;
 
-    constructor(private _postService: PostService, private _caseService: CaseService){
+    constructor(private _caseService: CaseService){
     }
 /*
     ngAfterViewInit(){

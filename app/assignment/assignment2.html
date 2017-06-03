@@ -1,9 +1,0 @@
-<form *ngIf="caseData!= null">
-    <div class="form-group">
-        <label for="InitialBalance">Initial Balance</label>
-        <input type="text" name="InitialBalance" [value]="caseData.content.InitialBalance" (input)="caseData.content.InitialBalance=$event.target.value" id="InitialBalance" class="form-control">
-        <label for="ClientName" class="control-label">Client name</label>
-        <input type="text" name="ClientName" [value]="caseData.content.ClientName" id="ClientName" class="form-control">
-        <button type="submit" class="btn btn-warning" name="button" (click)="onSubmit()">SUBMIT</button>
-    </div>
-</form>
