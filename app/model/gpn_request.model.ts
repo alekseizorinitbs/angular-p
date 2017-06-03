@@ -1,4 +1,4 @@
-export class Case1Content{
+export class GPNRequestContent{
   FuelType;
   FuelConsumption;
   ServiceOffice;
@@ -25,15 +25,15 @@ export class Case1Content{
   Segment;
 }
 
-export class Case1{
+export class GPNRequest{
   caseTypeID : String;
   processID: String;
   parentCaseID;
-  content: Case1Content;
+  content: GPNRequestContent;
   assignments;
 
   constructor(){
-    this.content = new Case1Content();
+    this.content = new GPNRequestContent();
     this.content.Industry = "";
     this.content.Currency="";
     this.content.BillAccount="";

@@ -1,6 +1,6 @@
 import {Http, RequestOptions, Headers} from '@angular/http'
 import {Injectable} from '@angular/core'
-import {Case1} from '../model/case1.model'
+import {GPNRequest} from '../model/gpn_request.model'
 import {Observable, Subject} from 'rxjs/Rx'
 
 @Injectable()
@@ -9,7 +9,7 @@ export class CaseService{
 private _url = "https://localhost:8443/prweb/api/v1/";
 private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/GPNDataManager/";
 
-  parentCase = new Subject<Case1>();
+  parentCase = new Subject<GPNRequest>();
   headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':'Basic QWRtaW5AQW5ndWxhclA6MTIz' });
   options = new RequestOptions({ headers: this.headers });
 
@@ -18,13 +18,13 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
   constructor(private _http: Http){
   }
 
-  cacheCaseData(case_: Case1){
+  cacheCaseData(case_: GPNRequest){
     this.cachedCaseData = case_;
   }
 
-  private cachedCaseData: Case1 = null;
+  private cachedCaseData: GPNRequest = null;
 
-  getCachedCaseData(): Case1{
+  getCachedCaseData(): GPNRequest{
     return this.cachedCaseData;
   }
 
@@ -57,7 +57,7 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
     .map(data => data.json());
   }
 
-  createCase(_case: Case1) : Observable<any> {
+  createCase(_case: GPNRequest) : Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':'Basic QWRtaW5AQW5ndWxhclA6MTIz' });
     let options = new RequestOptions({ headers: headers });
 
@@ -73,7 +73,7 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
     return this._http.get('https://localhost:8443/prweb/PRHTTPService/GPNDataManager/GPNDataManager/DownloadDoc',options);
   }
 
-  setNewParentCase(newParentCase: Case1){
+  setNewParentCase(newParentCase: GPNRequest){
     this.parentCase.next(newParentCase);
   }
 }

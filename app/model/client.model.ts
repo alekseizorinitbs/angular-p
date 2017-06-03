@@ -1,4 +1,4 @@
-export class ClientContent{
+export class GPNClientContent{
   HeadLegalName="";
   Industry="";
   ContactList="";
@@ -6,14 +6,14 @@ export class ClientContent{
   pyWorkParty;
 }
 
-export class Client{
+export class GPNClient{
   caseTypeID : String;
   processID: String;
-  content: ClientContent;
+  content: GPNClientContent;
     childCases;
 
   constructor(){
-    this.content = new ClientContent();
+    this.content = new GPNClientContent();
     this.content.HeadLegalName="";
     this.content.Industry="";
     this.content.ContactList="";

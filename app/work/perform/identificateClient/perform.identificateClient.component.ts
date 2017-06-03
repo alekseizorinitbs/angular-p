@@ -1,8 +1,8 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params, CanActivate,ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {CaseService} from '../../../caseService/case.service'
-import {Case1, Case1Content} from '../../../model/case1.model'
-import {ClientContent, Client} from '../../../model/client.model'
+import {GPNRequest, GPNRequestContent} from '../../../model/gpn_request.model'
+import {GPNClientContent, GPNClient} from '../../../model/client.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignment} from '../../../model/assignments.model'
@@ -21,7 +21,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     @Input()
     assignmentID;
 
-    caseData: Client = null;
+    caseData: GPNClient = null;
     caseData_ru: any;
     assignmentData: any = null;
 
@@ -99,7 +99,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     }
 
     private removeUndefined(){
-      let caseTmp : Client = new Client();
+      let caseTmp : GPNClient = new GPNClient();
 
       for(var key in caseTmp.content) {
         var value = this.caseData.content[key];
