@@ -4,7 +4,7 @@ import { AppComponent }   from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import 'rxjs/add/operator/map';
 import {HttpModule} from '@angular/http'
-import {CaseService} from './caseService/case.service'
+import {CaseService} from './services/case.service'
 import {PortalComponent} from './portal/portal.component'
 import {AssignmentsComponent} from './portal/assignments.component'
 import {AssignmentComponent} from './assignment/assignment.component'

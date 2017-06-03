@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
-import {CaseService} from '../caseService/case.service'
+import {CaseService} from '../services/case.service'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {AssignmentService} from '../assignmentService/assignment.service'

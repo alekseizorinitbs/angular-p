@@ -1,6 +1,6 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation, EventEmitter, Output} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
-import {CaseService} from '../../../caseService/case.service'
+import {CaseService} from '../../../services/case.service'
 import {GPNRequest, Case1Content} from '../../../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'

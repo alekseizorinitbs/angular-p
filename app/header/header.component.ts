@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {CaseService} from '../caseService/case.service'
+import {CaseService} from '../services/case.service'
 import {PortalComponent} from '../portal/portal.component'
 import {AssignmentService} from '../assignmentService/assignment.service'
 import {GPNRequest, Case1Content} from '../model/gpn_request.model'
