@@ -6,7 +6,7 @@ import {GPNRequest, Case1Content} from '../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignments} from '../model/assignments.model'
-import {AssignmentService} from '../assignmentService/assignment.service'
+import {AssignmentService} from '../services/assignment.service'
 
 @Component({
   selector: 'gp-assignments',

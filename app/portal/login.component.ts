@@ -4,7 +4,7 @@ import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
 import {CaseService} from '../services/case.service'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
-import {AssignmentService} from '../assignmentService/assignment.service'
+import {AssignmentService} from '../services/assignment.service'
 
 @Component({
   selector: 'gp-login',

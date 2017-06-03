@@ -2,11 +2,11 @@ import {Component, AfterViewInit, Input, OnInit} from '@angular/core';
 import { RouterModule, Router, Params, ActivatedRoute } from '@angular/router';
 import {CaseService} from '../../services/case.service'
 import {GPNRequest, Case1Content} from '../../model/gpn_request.model'
-import {ClientContent, Client} from '../../model/client.model'
+import {GPNClientContent, GPNClient} from '../../model/gpn_client.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignment, AssignmentAction} from '../../model/assignments.model'
-import {AssignmentService} from '../../assignmentService/assignment.service'
+import {AssignmentService} from '../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 
 @Component({
@@ -21,7 +21,7 @@ export class AssignmentPerformBaseComponent implements OnInit {
   onInit;
 
   public caseData: any = null;
-  protected parentCaseData: Client;
+  protected parentCaseData: GPNClient;
   protected assignmentData: any = null;
   protected paramsNode :ActivatedRoute;
   protected attachedDocs = null;
