@@ -1,6 +1,11 @@
 export class GPNBaseContent{
   pyWorkParty;
   pyStatusWork;
+  IsStateFinanced;
+  IsResident;
+  INN;
+  KPP;
+  OKPO;
 }
 
 export class GPNBase{

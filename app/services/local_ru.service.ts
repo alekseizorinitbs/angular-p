@@ -1,20 +1,23 @@
 import {Injectable} from '@angular/core'
 import {GPNBaseContent, GPNBase} from '../model/gpn_base.model'
+import {GPNClientContent} from '../model/gpn_client.model'
 
 @Injectable()
 export class Local_RU{
 
-  localize_GPNClient(case_ : GPNBase){
+  localize_GPNClient(case_ : GPNBase) : GPNClientContent{
 
-    if (case_.content_ru == null)
-    case_.content_ru = new GPNBaseContent();
+    let content_ru = new GPNClientContent();
 
     switch (case_.content.pyStatusWork){
-      case "New": case_.content_ru.pyStatusWork = "Ввод данных";
+      case "New": content_ru.pyStatusWork = "Ввод данных";
       break;
-      case "Open": case_.content_ru.pyStatusWork = "Клиент идентифицирован";
+      case "Open": content_ru.pyStatusWork = "Клиент идентифицирован";
       break;
     }
+
+    return content_ru;
+
   }
 
 }

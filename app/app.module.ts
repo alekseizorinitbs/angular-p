@@ -20,12 +20,13 @@ import {LoginComponent} from './portal/login.component'
 import {Local_RU} from './services/local_ru.service'
 import {ContactListComponent} from './components/contactList/contact_list.component'
 import {AddressListComponent} from './components/addressList/address_list.component'
+import {GPN_Client_General_Info_Component} from './components/work/gpn_client_general_info.component'
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule, ReactiveFormsModule, HttpModule, routing ],
   declarations: [ AppComponent, PortalComponent, AssignmentsComponent, HeaderComponent, AssignmentComponent, AssignmentPerformBaseComponent,
               Assignment_Perform_CreateRequest_Component, LoginComponent,
-                 Assignment_Perform_InitializeClient_Component, ContactListComponent, AddressListComponent],
+                 Assignment_Perform_InitializeClient_Component, ContactListComponent, AddressListComponent, GPN_Client_General_Info_Component],
   bootstrap:    [ AppComponent ],
   providers:    [  CaseService, AssignmentService, CacheService, Local_RU ]
 })

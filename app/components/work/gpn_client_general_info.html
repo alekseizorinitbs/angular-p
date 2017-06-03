@@ -1,0 +1,61 @@
+<div class="row">
+  <span>Статус: {{client_ru.pyStatusWork}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">Сегмент:</span>
+  <span>{{client.Segment}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">Приоритет привлечения:</span>
+  <span class="badge badge-pill badge-success">{{client.Priority}}</span>
+</div>
+
+<div class="row">
+  <span class="col-xs-12 col-sm-6">Резидент: </span>
+  <input class="checkbox disabled col-xs-12" type="checkbox" disabled [checked]="client.IsResident">
+</div>
+
+<div class="row">
+  <span class="col-xs-12 col-sm-6">Бюджетная организация:</span>
+  <input class="checkbox disabled col-xs-12" type="checkbox" disabled [checked]="client.IsStateFinanced">
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">ОГРН:</span>
+  <span>{{client.OGRN}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">ИНН:</span>
+  <span>{{client.INN}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">КПП:</span>
+  <span>{{client.KPP}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-6">ОКПО:</span>
+  <span>{{client.OKPO}}</span>
+</div>
+
+<div class="row" *ngIf="client.pyStatusWork=='New'">
+  <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="performAssignment()" >Идентифицировать клиента</span>
+</div>
+
+
+<!--
+"IsStateFinanced":"true",
+"IsResident":"",
+"OGRN":"1234567890",
+"INN":"9876543210",
+"KPP":"0102036548",
+"OKPO":"4597777777",
+-->
+
+<div class="row">
+  <span class="badge badge-danger" style="font-size: 15px; margin-top: 20px; padding: 5px 25px 5px 25px;" (click)="closeClient()">Аннулировать клиента</span>
+</div>

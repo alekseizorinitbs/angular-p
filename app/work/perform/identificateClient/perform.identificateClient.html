@@ -48,6 +48,7 @@
   </div>
 
 </div>
+
 </div>
   <!-- END Tab panes -->
   <div class="row gp-container">
@@ -60,28 +61,9 @@
   </div>
 
 </div>
-<div class="col-sm-6">
-
+<div class="col-sm-6" *ngIf="caseData!= null && caseData_ru != null">
   <div class="gp-container">
-      <div class="row" *ngIf="caseData!= null">
-        <span>Статус: {{caseData.content_ru.pyStatusWork}}</span>
-      </div>
-
-      <div class="row">
-        <span>Сегмент: {{caseData.content.Segment}}</span>
-      </div>
-
-      <div class="row">
-        <span>Приоритет привлечения: <span class="badge badge-pill badge-success">{{caseData.content.Priority}}</span></span>
-      </div>
-
-      <div class="row" *ngIf="caseData.content.pyStatusWork=='New'">
-        <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="performAssignment()" >Идентифицировать клиента</span>
-      </div>
-
-      <div class="row">
-        <span class="badge badge-danger" style="font-size: 15px; margin-top: 20px; padding: 5px 25px 5px 25px;">Аннулировать клиента</span>
-      </div>
+    <gp-client-general-info [client] = "caseData.content" [client_ru] = "caseData_ru"></gp-client-general-info>
   </div>
 </div>
 </div>
