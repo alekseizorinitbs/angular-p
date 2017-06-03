@@ -1,0 +1,5 @@
+<div *ngIf="clients != null" class="container">
+  <gp-assignment *ngFor="let client of clients.pxResults"
+  [client]="client"
+  ></gp-assignment>
+</div>

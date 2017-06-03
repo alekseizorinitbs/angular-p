@@ -1,0 +1,18 @@
+<div class="container">
+  <form *ngIf="caseData!= null">
+    <div class="form-group">
+      <label for="FuelType">Марка топлива</label>
+      <input type="text"
+      name="FuelType"
+      [value]="caseData.content.FuelType"
+      (input)="caseData.content.FuelType=$event.target.value"
+      id="FuelType"
+      class="form-control">
+      <label for="ScheduledFor">Scheduled For</label>
+      <input type="date" name="ScheduledFor" [(value)]="caseData.content.ScheduledFor"
+      id="ScheduledFor"
+      class="form-control">
+      <button type="submit" class="btn btn-warning" name="button" (click)="onSubmit()">SUBMIT</button>
+    </div>
+  </form>
+</div>

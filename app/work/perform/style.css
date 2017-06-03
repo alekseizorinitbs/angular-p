@@ -1,0 +1,40 @@
+h5{
+  cursor: pointer;
+}
+
+.media{
+  box-shadow: -5px -5px 10px rgba(128, 128, 128, 0.42);
+  margin: 10px;
+  padding: 5px;
+}
+
+.gp-container form{
+  padding: 20px;
+  box-shadow: 2px 2px 8px #888888;
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 10px;
+}
+
+.gp-container{
+  box-shadow: 2px 2px 8px rgba(31, 31, 31, 0.5);
+  padding: 20px;
+  padding-top: 10px;
+  margin: 20px;
+}
+
+.gp-label{
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.row-content{
+  margin-top: 10px;
+}
+
+button{
+  margin-left: 15px;
+}
+
+input[type="checkbox"]{
+  margin-top: 8px;
+}

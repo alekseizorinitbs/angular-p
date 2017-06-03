@@ -1,0 +1,54 @@
+{
+  "name": "angular-quickstart",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "@angular/common": "~2.4.1",
+    "@angular/compiler": "~2.4.1",
+    "@angular/compiler-cli": "^2.4.1",
+    "@angular/core": "~2.4.1",
+    "@angular/forms": "~2.4.1",
+    "@angular/http": "~2.4.1",
+    "@angular/platform-browser": "~2.4.1",
+    "@angular/platform-browser-dynamic": "~2.4.1",
+    "@angular/platform-server": "^2.4.1",
+    "@angular/router": "~3.4.1",
+    "codelyzer": "^1.0.0-beta.3",
+    "concurrently": "^3.1.0",
+    "core-js": "^2.4.1",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "ng2-cache": "^0.1.11",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.1",
+    "tslint": "^4.2.0",
+    "typescript": "^2.1.4",
+    "typings": "^2.1.0",
+    "zone.js": "^0.7.4"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.45",
+    "angular2-fontawesome": "^0.9.0",
+    "clean-css": "^4.1.2",
+    "concurrently": "^3.0.0",
+    "del": "^2.2.2",
+    "font-awesome": "^4.7.0",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-file-copy": "0.0.1",
+    "gulp-jshint": "^2.0.4",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.3"
+  }
+}
