@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation, EventEmitter, Output} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
 import {CaseService} from '../../../caseService/case.service'
-import {Case1, Case1Content} from '../../../model/case1.model'
+import {GPNRequest, Case1Content} from '../../../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignment} from '../../../model/assignments.model'
@@ -22,7 +22,7 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
 
     attachedDocs = {};
     caseData_ru: any = new Object();
-    caseData: Case1 = null;
+    caseData: GPNRequest = null;
     assignmentData: any = null;
 
     constructor (protected caseService: CaseService, protected router: Router,
@@ -79,7 +79,7 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
     }
 
     private removeUndefined(){
-      let caseTmp : Case1 = new Case1();
+      let caseTmp : GPNRequest = new GPNRequest();
 
       for(var key in caseTmp.content) {
         var value =

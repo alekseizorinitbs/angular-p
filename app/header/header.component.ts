@@ -2,7 +2,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {CaseService} from '../caseService/case.service'
 import {PortalComponent} from '../portal/portal.component'
 import {AssignmentService} from '../assignmentService/assignment.service'
-import {Case1, Case1Content} from '../model/case1.model'
+import {GPNRequest, Case1Content} from '../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 
 @Component({
@@ -18,7 +18,7 @@ export class HeaderComponent {
     }
 
     onCreateCase1() {
-        let _case: Case1 = new Case1();
+        let _case: GPNRequest = new GPNRequest();
 
         _case.caseTypeID = "PersonalEdition-AngularP-Work-GPNRequest";
         _case.processID = "pyStartCase";

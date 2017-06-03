@@ -1,7 +1,7 @@
 import {Component,Input} from '@angular/core';
 import {HeaderComponent} from '../header/header.component'
 import {CaseService} from '../caseService/case.service'
-import {Case1, Case1Content} from '../model/case1.model'
+import {GPNRequest, Case1Content} from '../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {AssignmentsComponent} from './assignments.component'

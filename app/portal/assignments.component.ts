@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HeaderComponent} from '../header/header.component'
 import {PortalComponent} from './portal.component'
 import {CaseService} from '../caseService/case.service'
-import {Case1, Case1Content} from '../model/case1.model'
+import {GPNRequest, Case1Content} from '../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignments} from '../model/assignments.model'

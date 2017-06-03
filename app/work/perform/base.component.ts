@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, Input, OnInit} from '@angular/core';
 import { RouterModule, Router, Params, ActivatedRoute } from '@angular/router';
 import {CaseService} from '../../caseService/case.service'
-import {Case1, Case1Content} from '../../model/case1.model'
+import {GPNRequest, Case1Content} from '../../model/gpn_request.model'
 import {ClientContent, Client} from '../../model/client.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
@@ -45,7 +45,7 @@ export class AssignmentPerformBaseComponent implements OnInit {
 
   }
 
-  getParentCaseData(childCase: Case1){
+  getParentCaseData(childCase: GPNRequest){
     if (childCase.parentCaseID != undefined){
       this.caseService.getCase(childCase.parentCaseID).subscribe(data => {
         this.parentCaseData = data;

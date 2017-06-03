@@ -25,7 +25,7 @@ export class Case1Content{
   Segment;
 }
 
-export class Case1{
+export class GPNRequest{
   caseTypeID : String;
   processID: String;
   parentCaseID;

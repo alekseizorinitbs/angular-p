@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params, CanActivate,ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {CaseService} from '../../../caseService/case.service'
-import {Case1, Case1Content} from '../../../model/case1.model'
+import {GPNRequest, Case1Content} from '../../../model/gpn_request.model'
 import {ClientContent, Client} from '../../../model/client.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
@@ -22,7 +22,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     assignmentID;
 
     caseData: Client = null;
-    caseData_ru: any;
+    caseData_ru = new Object();
     assignmentData: any = null;
 
     childAssignments = [];
@@ -30,7 +30,8 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
   protected cacheService: CacheService){
-
+      this.caseData_ru = new Object();
+      this.caseData_ru.pyStatusWork = {};
     }
 
     onDeletePhone(index){
@@ -106,5 +107,8 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
         if (value == undefined)
           this.caseData.content[key]="";
         }
+
+        this.caseData.content.pyWorkParty = {};
+        console.log(this.caseData.content);
     }
 }
