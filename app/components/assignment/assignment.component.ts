@@ -1,17 +1,17 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import {CaseService} from '../services/case.service'
-import {GPNRequest, Case1Content} from '../model/gpn_request.model'
+import {CaseService} from '../../services/case.service'
+import {GPNRequest, Case1Content} from '../../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
-import {Assignment} from '../model/assignments.model'
-import {AssignmentService} from '../services/assignment.service'
+import {Assignment} from '../../model/assignments.model'
+import {AssignmentService} from '../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 
 @Component({
   selector: 'gp-assignment',
-  templateUrl: 'app/assignment/assignment.html',
-  styleUrls: ['app/assignment/style.css']
+  templateUrl: 'app/components/assignment/assignment.html',
+  styleUrls: ['app/components/assignment/style.css']
 })
 
 export class AssignmentComponent implements OnInit{
