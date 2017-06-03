@@ -31,7 +31,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
   protected cacheService: CacheService, private _localRuService: Local_RU){
-      
+
     }
 
     onDeletePhone(index){
@@ -43,10 +43,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     }
 
     onSubmit(){
-      this.assignmentService.performAssignment(this.caseData, this.cacheService.get('assignment')[0].ID,
-        this.cacheService.get('assignment')[0].actions[0].ID).subscribe(data => {
-          this.router.navigate(["home"]);
-        });
+      this.performAssignment();
     }
 
     ngOnInit(){

@@ -41,6 +41,7 @@ private _url = "https://localhost:8443/prweb/api/v1/";
   }
 
   performAssignment(_assignment: any, id, actionID) {
+          console.log(id)
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':'Basic QWRtaW5AQW5ndWxhclA6MTIz' });
     let options = new RequestOptions({ headers: headers });
     return this._http.post(this._url + 'assignments/' + id + '/?actionID=' + actionID, JSON.stringify(_assignment),options)

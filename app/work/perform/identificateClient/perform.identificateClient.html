@@ -19,36 +19,11 @@
   <div class="tab-content">
     <div class="tab-pane active" id="contacts" role="tabpanel">
       <div class="form-group" *ngIf="caseData != null">
-
-        <div *ngIf="caseData.content.AddressList[0] != null">
-          <!--
-          Область	*3 results are available, use up and down arrow keys to navigate.
-          h
-          Район
-          h
-          Населённый пункт	*
-          h
-          Улица	*
-          h
-          Дом	*
-          h
-          Номер квартиры
-          h
-          Номер офиса
-          h
-          Индекс *
-        -->
-
-        <label for="pyState">Область</label>
-        <input type="text" [value]="caseData.content.AddressList[0].pyState" (input)="caseData.content.AddressList[0].pyState=$event.target.value" id="pyState" class="form-control">
-
-        <label for="District">Район</label>
-        <input type="text" [value]="caseData.content.AddressList[0].District" (input)="caseData.content.AddressList[0].District=$event.target.value" id="District" class="form-control">
-
-        <label for="pyCity">Населённый пункт</label>
-        <input type="text" [value]="caseData.content.AddressList[0].pyCity" (input)="caseData.content.AddressList[0].pyCity=$event.target.value" id="pyCity" class="form-control">
-
-      </div>
+        <div>
+          <h5></h5>
+        </div>
+        <gp-contactList [contacts]="caseData.content.ContactList"></gp-contactList>
+        <gp-addressList [addresses]="caseData.content.AddressList"></gp-addressList>
 
     </div>
 

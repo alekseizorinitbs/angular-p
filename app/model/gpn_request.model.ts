@@ -1,14 +1,16 @@
+import {Data_Party, Data_Address} from './gpn_base.model'
+
 export class Case1Content{
   FuelType;
   FuelConsumption;
   ServiceOffice;
   ServiceRegion;
-  Party: Data_Party;
+  Party: Data_Party[];
   Currency;
   BillAccount;
   IsResident;
   Bank;
-  Contacts : Data_Address;
+  Contacts : Data_Address[];
   PDF;
   BIK;
   CorrAccount;
@@ -54,12 +56,4 @@ export class GPNRequest{
     this.content.pyWorkParty="";
     this.content.Segment = "";
   }
-}
-
-export class Data_Party{
-
-}
-
-export class Data_Address{
-
 }

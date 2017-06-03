@@ -1,0 +1,8 @@
+.row{
+  margin: 5px 0 5px 0;
+}
+
+.gp-separator{
+  border-bottom: 1px solid rgba(150,150,150,0.5);
+  padding: 15px 0 15px 0;
+}

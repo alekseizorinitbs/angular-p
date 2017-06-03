@@ -19,9 +19,14 @@ export class GPNBase{
 }
 
 export class Data_Party{
-
+  pxObjClass;
+  pyAddress;
+  pyLabel;
 }
 
 export class Data_Address{
-
+  pxObjClass;
+  pyPhoneNumber;
+  pyEmailAddress;
+  pyLabel;
 }

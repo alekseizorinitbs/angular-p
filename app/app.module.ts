@@ -18,12 +18,14 @@ import {Assignment_Perform_CreateRequest_Component} from './work/perform/identif
 import {Assignment_Perform_InitializeClient_Component} from './work/perform/identificateClient/perform.identificateClient.component'
 import {LoginComponent} from './portal/login.component'
 import {Local_RU} from './services/local_ru.service'
+import {ContactListComponent} from './components/contactList/contact_list.component'
+import {AddressListComponent} from './components/addressList/address_list.component'
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule, ReactiveFormsModule, HttpModule, routing ],
   declarations: [ AppComponent, PortalComponent, AssignmentsComponent, HeaderComponent, AssignmentComponent, AssignmentPerformBaseComponent,
               Assignment_Perform_CreateRequest_Component, LoginComponent,
-                 Assignment_Perform_InitializeClient_Component],
+                 Assignment_Perform_InitializeClient_Component, ContactListComponent, AddressListComponent],
   bootstrap:    [ AppComponent ],
   providers:    [  CaseService, AssignmentService, CacheService, Local_RU ]
 })

@@ -1,0 +1,11 @@
+<div class="gp-separator">
+  <div *ngFor="let address of addresses; let i = index;" class="row" (keypress)="handleKeypress($event)">
+
+    <label *ngIf="_new[i] == false" class="col-xs-12 col-sm-4">{{address.pyLabel}}</label>
+    <input *ngIf="_new[i] == true" class="col-xs-12 col-sm-4 form-control" type="text" [value]="address.pyLabel" (input)="address.pyLabel=$event.target.value">
+
+    <input class="col-xs-10 col-sm-6 form-control" [value]="address.pyAddress" (input)="address.pyAddress=$event.target.value"/>
+    <button type="button" name="button" class="btn btn-info" (click)="onDelete(i)">-</button>
+  </div>
+  <button type="button" name="button" class="btn btn-success" (click)="onAdd()">+</button>
+</div>
