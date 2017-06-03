@@ -1,7 +1,7 @@
 import {Http, RequestOptions, Headers} from '@angular/http'
 import {Injectable} from '@angular/core'
 import {Observable} from 'rxjs/Rx'
-import {GPNRequest} from '../model/gpn_request.model'
+import {Case1} from '../model/case1.model'
 import {Assignment} from '../model/assignments.model'
 
 @Injectable()
