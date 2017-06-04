@@ -25,6 +25,12 @@
                             <gp-contactList [contacts]="caseData.content.ContactList" [readOnly]="isReadOnly"></gp-contactList>
                             <gp-addressList [addresses]="caseData.content.AddressList" [readOnly]="isReadOnly"></gp-addressList>
 
+                            <div class="row" style="margin-top: 15px;">
+                              <span class="col-xs-12 col-sm-4">Регион обслуживания:</span>
+                              <input  class="form-control col-xs-12 col-sm-8" *ngIf="!isReadOnly" type="text" [value]="caseData.content.ServiceRegion" (input)="caseData.content.ServiceRegion = $event.target.value" >
+                              <span  class="col-xs-12 col-sm-8" *ngIf="isReadOnly">{{caseData.content.ServiceRegion}}</span>
+                            </div>
+
                         </div>
 
                     </div>
@@ -38,7 +44,6 @@
                               <gp-addressList [addresses]="contact.Party" [readOnly]="isReadOnly"></gp-addressList>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
