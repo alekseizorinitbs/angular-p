@@ -3,6 +3,8 @@ import {Injectable} from '@angular/core'
 import {GPNRequest} from '../model/gpn_request.model'
 import {GPNBase} from '../model/gpn_base.model'
 import {Observable, Subject} from 'rxjs/Rx'
+import {AuthenticatedGuard} from './authguard.service'
+import {CacheService} from 'ng2-cache/ng2-cache'
 
 @Injectable()
 export class CaseService{
@@ -16,7 +18,11 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
 
   parentCase$ = this.parentCase.asObservable();
 
-  constructor(private _http: Http){
+  constructor(private _http: Http, private _authGuard: AuthenticatedGuard, private _cacheService: CacheService){
+    this._authGuard.authenticates$.subscribe(result => {
+      this.headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':this._cacheService.get('creds')});
+      console.log('new creds:' + this._cacheService.get('creds'));
+    });
   }
 
   cacheCaseData(case_: GPNRequest){

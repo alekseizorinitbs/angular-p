@@ -30,6 +30,7 @@ export class AuthenticatedGuard implements CanActivate {
         let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization':cred});
         let options = new RequestOptions({ headers: headers });
         this._http.get(this._url ,options).subscribe((data) => {
+          this.cacheService.set('creds', cred);
           this.cacheService.set('isAuthenticated', true);
           this.isAuthenticated.next(true);
           this.router.navigate(['home']);
@@ -44,6 +45,7 @@ export class AuthenticatedGuard implements CanActivate {
 
     onLogout(){
       this.cacheService.set('isAuthenticated', false);
+      this.cacheService.set('creds', "");
       this.isAuthenticated.next(false);
       this.router.navigate(['/login']);
     }
