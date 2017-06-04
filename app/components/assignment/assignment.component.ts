@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import {CaseService} from '../../services/case.service'
-import {GPNRequest, Case1Content} from '../../model/gpn_request.model'
+import {GPNRequest, GPNRequestContent} from '../../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignment} from '../../model/assignments.model'

@@ -1,9 +1,12 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Router} from '@angular/router'
 import {CaseService} from '../../services/case.service'
 import {PortalComponent} from '../../portal/portal.component'
 import {AssignmentService} from '../../services/assignment.service'
-import {GPNRequest, Case1Content} from '../../model/gpn_request.model'
-import {Observable} from 'rxjs/Rx'
+import {GPNRequest, GPNRequestContent} from '../../model/gpn_request.model'
+import {Observable, Subject} from 'rxjs/Rx'
+import {CacheService} from 'ng2-cache/ng2-cache'
+import {AuthenticatedGuard} from '../../services/authguard.service'
 
 @Component({
     selector: 'gp-header',
@@ -11,10 +14,20 @@ import {Observable} from 'rxjs/Rx'
     styleUrls: ['app/portal/style.css']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
-    constructor(private _caseService: CaseService, private _assignmentService: AssignmentService) {
+  isAuthenticated;
 
+  ngOnInit(){
+    this.isAuthenticated = this.cacheService.get('isAuthenticated');
+  }
+
+    constructor(private _caseService: CaseService, private _assignmentService: AssignmentService, private cacheService: CacheService,
+    private _router: Router, private _authGuard: AuthenticatedGuard) {
+        this._authGuard.authenticates$.subscribe(result => {
+          this.isAuthenticated = result;
+          console.log(result);
+        });
     }
 
     onCreateCase1() {
@@ -22,8 +35,12 @@ export class HeaderComponent {
 
         _case.caseTypeID = "PersonalEdition-AngularP-Work-GPNRequest";
         _case.processID = "pyStartCase";
-        _case.content = new Case1Content();
+        _case.content = new GPNRequestContent();
 
         this._caseService.createCase(_case).subscribe(status => (status));
+    }
+
+    onLogout(){
+      this._authGuard.onLogout();
     }
 }

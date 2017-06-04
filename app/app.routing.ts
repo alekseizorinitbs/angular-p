@@ -7,13 +7,14 @@ import {AssignmentPerformBaseComponent} from './work/perform/base.component'
 import {Assignment_Perform_CreateRequest_Component} from './work/perform/identificateClient/perform.createRequest.component'
 import {Assignment_Perform_InitializeClient_Component} from './work/perform/identificateClient/perform.identificateClient.component'
 import {LoginComponent} from './portal/login.component'
+import {AuthenticatedGuard} from './services/authguard.service'
 
 
 export const routing = RouterModule.forRoot(
   [
-    {path:'home', component: PortalComponent},
-    {path:'assignments', component: AssignmentsComponent},
-    {path:'perform', component: AssignmentPerformBaseComponent,
+    {path:'home', component: PortalComponent, canActivate:[AuthenticatedGuard]},
+    {path:'assignments', component: AssignmentsComponent, canActivate:[AuthenticatedGuard]},
+    {path:'perform', component: AssignmentPerformBaseComponent, canActivate:[AuthenticatedGuard],
         children:[
           {
             path: 'CreateOffer/:assignmentId',
@@ -29,7 +30,7 @@ export const routing = RouterModule.forRoot(
         path:'login', component: LoginComponent
       },
 
-    {path:'**', component: PortalComponent}
+    {path:'**', component: PortalComponent, canActivate:[AuthenticatedGuard]}
   ],
   {useHash: true}
 );

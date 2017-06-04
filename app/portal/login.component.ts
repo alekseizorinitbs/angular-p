@@ -5,6 +5,7 @@ import {CaseService} from '../services/case.service'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {AssignmentService} from '../services/assignment.service'
+import {AuthenticatedGuard} from '../services/authguard.service'
 
 @Component({
   selector: 'gp-login',
@@ -14,15 +15,25 @@ import {AssignmentService} from '../services/assignment.service'
 
 export class LoginComponent{
 
+loginOK = true;
 
   constructor (protected caseService: CaseService, protected router: Router,
   protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
-protected cacheService: CacheService){
-
+protected cacheService: CacheService, private authService: AuthenticatedGuard){
   }
 
   login(login_,password){
+    if (login_ == "" || password == ""){
+      this.loginOK = false;
+      return;
+    }
+
     var authdata = "Basic " + this.encode(login_ + ':' + password);
+
+    // TODO: int with pega
+    if (!this.authService.onAuthenticated(authdata))
+      this.loginOK = false;
+      else this.loginOK = true;
   }
 
   encode(input){
