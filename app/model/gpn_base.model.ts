@@ -10,6 +10,8 @@ export class GPNBaseContent{
 
 export class GPNBase{
   caseTypeID : String;
+  ID;
+  lastUpdateTime;
   processID: String;
   content: GPNBaseContent;
   content_ru: GPNBaseContent;

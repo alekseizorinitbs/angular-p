@@ -104,4 +104,18 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
         this.caseData.content.pyWorkParty = {};
         console.log(this.caseData.content);
     }
+
+    initClient(e){
+      this.assignmentService.performAssignment(this.caseData, this.caseData.assignments[0].ID, this.caseData.assignments[0].actions[0].ID)
+      .subscribe(resp => {
+        this.router.navigate(['home']);
+      });
+    }
+
+    closeClient(e){
+      this.caseService.launchLocalAction(this.caseData, "TerminateClient").subscribe(data =>{
+        console.log(data);
+          this.router.navigate(['home']);
+      });
+    }
 }

@@ -2,7 +2,7 @@
 <div class="row" *ngIf="caseData != null">
 
   <div class="col-xs-12 col-sm-6">
-
+<h5>{{caseData.content.pyLabel}}</h5>
 <div class="gp-container">
 
   <ul class="nav nav-tabs" role="tablist">
@@ -63,7 +63,7 @@
 </div>
 <div class="col-sm-6" *ngIf="caseData!= null && caseData_ru != null">
   <div class="gp-container">
-    <gp-client-general-info [client] = "caseData.content" [client_ru] = "caseData_ru"></gp-client-general-info>
+    <gp-client-general-info [client] = "caseData.content" [client_ru] = "caseData_ru" style="cursor:pointer" (initClient) = "initClient($event)" (closeClient)="closeClient($event)"></gp-client-general-info>
   </div>
 </div>
 </div>

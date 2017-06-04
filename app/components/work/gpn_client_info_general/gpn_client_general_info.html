@@ -43,7 +43,7 @@
 </div>
 
 <div class="row" *ngIf="client.pyStatusWork=='New'">
-  <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="performAssignment()" >Идентифицировать клиента</span>
+  <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="initClientCall(true)" >Идентифицировать клиента</span>
 </div>
 
 
@@ -57,5 +57,5 @@
 -->
 
 <div class="row">
-  <span class="badge badge-danger" style="font-size: 15px; margin-top: 20px; padding: 5px 25px 5px 25px;" (click)="closeClient()">Аннулировать клиента</span>
+  <span class="badge badge-danger" style="font-size: 15px; margin-top: 20px; padding: 5px 25px 5px 25px;" (click)="closeClientCall(true)">Аннулировать клиента</span>
 </div>

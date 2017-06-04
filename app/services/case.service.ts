@@ -1,6 +1,7 @@
 import {Http, RequestOptions, Headers} from '@angular/http'
 import {Injectable} from '@angular/core'
 import {GPNRequest} from '../model/gpn_request.model'
+import {GPNBase} from '../model/gpn_base.model'
 import {Observable, Subject} from 'rxjs/Rx'
 
 @Injectable()
@@ -75,5 +76,18 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
 
   setNewParentCase(newParentCase: GPNRequest){
     this.parentCase.next(newParentCase);
+  }
+
+  launchLocalAction(_case: GPNBase, actionId): Observable<any>{
+    let etag = _case.lastUpdateTime;
+    etag = '"' + etag.replace(/-/g,'').replace(/Z/g, ' GMT').replace(/:/g,'') + '"';
+    console.log(etag);
+
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':'Basic QWRtaW5AQW5ndWxhclA6MTIz' , 'If-Match' : etag});
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.put(this._url + 'cases/' + _case.ID + '/?actionID=' + actionId, _case, options)
+    .map(data => data.json());
+
   }
 }
