@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params, CanActivate,ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {CaseService} from '../../../services/case.service'
-import {GPNRequest, Case1Content} from '../../../model/gpn_request.model'
+import {GPNRequest, GPNRequestContent} from '../../../model/gpn_request.model'
 import {GPNClientContent, GPNClient} from '../../../model/gpn_client.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
@@ -108,14 +108,14 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     initClient(e){
       this.assignmentService.performAssignment(this.caseData, this.caseData.assignments[0].ID, this.caseData.assignments[0].actions[0].ID)
       .subscribe(resp => {
-        this.router.navigate(['home']);
+        this.router.navigate(['assignments']);
       });
     }
 
     closeClient(e){
       this.caseService.launchLocalAction(this.caseData, "TerminateClient").subscribe(data =>{
         console.log(data);
-          this.router.navigate(['home']);
+          this.router.navigate(['assignments']);
       });
     }
 }

@@ -1,6 +1,6 @@
 import {Data_Party, Data_Address} from './gpn_base.model'
 
-export class Case1Content{
+export class GPNRequestContent{
   FuelType;
   FuelConsumption;
   ServiceOffice;
@@ -31,11 +31,11 @@ export class GPNRequest{
   caseTypeID : String;
   processID: String;
   parentCaseID;
-  content: Case1Content;
+  content: GPNRequestContent;
   assignments;
 
   constructor(){
-    this.content = new Case1Content();
+    this.content = new GPNRequestContent();
     this.content.Industry = "";
     this.content.Currency="";
     this.content.BillAccount="";

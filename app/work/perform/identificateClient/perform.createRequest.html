@@ -1,27 +1,39 @@
 <div *ngIf="caseData != null">
-    <h4>{{caseData.content.pyLabel}}</h4>
+    <h4>{{caseData.content.pyID}}</h4>
 </div>
+
 <div class="row" *ngIf="caseData != null">
+
     <div class="col-xs-12 col-sm-6">
-        <div class="gp-container">
-            <div class="row">
-                <span>Регион обслуживания: {{caseData.content.ServiceRegion}}</span>
-            </div>
-            <div class="row">
-                <span>Оффис: {{caseData.content.ServiceOffice}}</span>
+        <div class="row">
+            <div class="gp-container col-xs-12 col-sm-12">
+                <div class="row">
+                    <span>Регион обслуживания: {{caseData.content.ServiceRegion}}</span>
+                </div>
+                <div class="row">
+                    <span>Оффис: {{caseData.content.ServiceOffice}}</span>
+                </div>
             </div>
         </div>
 
-        <div class="gp-container">
-            <div *ngIf="attachedDocs != null">
-              <div *ngFor="let doc_ of attachedDocs.pxResults; let i = index" class="row row-content">
-                <i (click)="onDownloadDoc(i)" class="fa fa-file-word-o" style="font-size: 30; cursor: pointer;"></i><span style="font-size: 25">  {{doc_.pyLabel}}</span>
-              </div>
+        <div class="row">
+            <div class="gp-container col-xs-12 col-sm-12">
+                <div *ngIf="attachedDocs != null">
+                    <div *ngFor="let doc_ of attachedDocs.pxResults; let i = index" class="row row-content">
+                        <i (click)="onDownloadDoc(i)" class="fa fa-file-word-o" style="font-size: 30; cursor: pointer;"></i><span style="font-size: 25">  {{doc_.pyLabel}}</span>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
     <div class="col-xs-12 col-sm-6">
-
+        <div class="gp-container" *ngIf="caseData!= null">
+              <gp-request-general-info [request]="caseData.content" [request_ru]="caseData_ru" (initRequest) = "onInitRequest($event)"
+              (closeRequest) = "onCloseRequest($event)"
+              (confirmRequest)="onConfirmRequest($event)"></gp-request-general-info>
+        </div>
     </div>
+
 </div>

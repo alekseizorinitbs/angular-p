@@ -1,0 +1,22 @@
+<div class="row">
+ <span class ="col-xs-12 col-sm-4">Статус:</span>
+ <span>{{request_ru.pyStatusWork}}</span>
+</div>
+
+<div class="row">
+  <span class ="col-xs-12 col-sm-4">Клиент:</span>
+  <span style="cursor:pointer; color:blue;">{{request.ClientLabel}}</span>
+</div>
+
+
+<div class="row" *ngIf="request.pyStatusWork=='Open'">
+  <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="initRequestCall(true)" >Запросить у клиента документы</span>
+</div>
+
+<div class="row" *ngIf="request.pyStatusWork=='Pending-External'">
+  <span class="badge badge-success" style="font-size: 15px; margin-top: 100px; cursor: pointer;" (click)="confirmRequestCall(true)" >Согласовать сделку</span>
+</div>
+
+<div class="row" *ngIf="!request.pyStatusWork.includes('Resolved')">
+  <span class="badge badge-danger" style="font-size: 15px; margin-top: 20px; padding: 5px 25px 5px 25px; cursor: pointer;" (click)="closeRequestCall(true)">Аннулировать сделку</span>
+</div>

@@ -7,6 +7,10 @@ export class GPNClientContent extends GPNBaseContent{
   AddressList: Data_Party[];
   Segment = "";
   pyWorkParty;
+  CorrAccount;
+  BillAccount;
+  Currency;
+  BIK;
 }
 
 export class GPNClient extends GPNBase{
@@ -21,5 +25,9 @@ export class GPNClient extends GPNBase{
     this.content.ContactList=[];
     this.content.AddressList=[];
     this.content.Segment = "";
+    this.content.CorrAccount="";
+    this.content.BillAccount="";
+    this.content.Currency="";
+    this.content.BIK="";
   }
 }

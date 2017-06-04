@@ -1,12 +1,13 @@
 import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation, EventEmitter, Output} from '@angular/core';
 import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
 import {CaseService} from '../../../services/case.service'
-import {GPNRequest, Case1Content} from '../../../model/gpn_request.model'
+import {GPNRequest, GPNRequestContent} from '../../../model/gpn_request.model'
 import {Observable} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {Assignment} from '../../../model/assignments.model'
 import {AssignmentService} from '../../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
+import {Local_RU} from '../../../services/local_ru.service'
 
 @Component({
   selector: 'gp-assignment1',
@@ -21,13 +22,13 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
     assignmentID;
 
     attachedDocs = {};
-    caseData_ru: any = new Object();
+    caseData_ru = new Object();
     caseData: GPNRequest = null;
     assignmentData: any = null;
 
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
-  protected cacheService: CacheService){
+  protected cacheService: CacheService, private _localRuService: Local_RU){
 
     }
 
@@ -49,11 +50,10 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
     });
     }
 
-    localizePyStatusWork(caseData){
-        if (caseData.content.pyStatusWork == "New") this.caseData_ru.pyStatusWork = new String("Ввод данных");
-        if (caseData.content.pyStatusWork == "Open")  this.caseData_ru.pyStatusWork = new String("Клиент идентифицирован");
 
-      }
+      localizePyStatusWork(caseData){
+          this.caseData_ru = this._localRuService.localize_GPNClient(caseData);
+        }
 
     ngOnInit(){
 
@@ -88,5 +88,27 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
           this.caseData.content[key]="";
         }
     }
+
+    onInitRequest(e){
+      this.assignmentService.performAssignment(this.caseData, this.caseData.assignments[0].ID, this.caseData.assignments[0].actions[0].ID)
+      .subscribe(resp => {
+        this.router.navigate(['assignments']);
+      });
+    }
+
+    onCloseRequest(e){
+      this.caseService.launchLocalAction(this.caseData, "TerminateRequest").subscribe(data =>{
+        console.log(data);
+          this.router.navigate(['assignments']);
+      });
+    }
+
+    onConfirmRequest(e){
+      this.assignmentService.performAssignment(this.caseData, this.caseData.assignments[0].ID, "ConfirmRequest")
+      .subscribe(resp => {
+        this.router.navigate(['assignments']);
+      });
+    }
+
 
   }

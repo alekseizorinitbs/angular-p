@@ -21,12 +21,15 @@ import {Local_RU} from './services/local_ru.service'
 import {ContactListComponent} from './components/contactList/contact_list.component'
 import {AddressListComponent} from './components/addressList/address_list.component'
 import {GPN_Client_General_Info_Component} from './components/work/gpn_client_info_general/gpn_client_general_info.component'
+import {GPN_Accounts_Contacts_Component} from './components/work/gpn_accounts_contacts/gpn_accounts_contacts.component'
+import {GPN_Request_General_Info_Component} from './components/work/gpn_request_general_info/gpn_request_general_info.component'
 
 @NgModule({
   imports:      [ BrowserModule,FormsModule, ReactiveFormsModule, HttpModule, routing ],
   declarations: [ AppComponent, PortalComponent, AssignmentsComponent, HeaderComponent, AssignmentComponent, AssignmentPerformBaseComponent,
               Assignment_Perform_CreateRequest_Component, LoginComponent,
-                 Assignment_Perform_InitializeClient_Component, ContactListComponent, AddressListComponent, GPN_Client_General_Info_Component],
+                 Assignment_Perform_InitializeClient_Component, ContactListComponent, AddressListComponent, GPN_Client_General_Info_Component,
+                 GPN_Accounts_Contacts_Component, GPN_Request_General_Info_Component],
   bootstrap:    [ AppComponent ],
   providers:    [  CaseService, AssignmentService, CacheService, Local_RU ]
 })

@@ -1,72 +1,70 @@
 <div class="col-xs-12">
-<div class="row" *ngIf="caseData != null">
+    <div class="row" *ngIf="caseData != null">
 
-  <div class="col-xs-12 col-sm-6">
-<h5>{{caseData.content.pyLabel}}</h5>
-<div class="gp-container">
+        <div class="col-xs-12 col-sm-6">
+            <h5>{{caseData.content.pyLabel}}</h5>
+            <div class="gp-container">
 
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#contacts" role="tab">Адреса и телефоны</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#accounts" role="tab">Счёт и контактные лица</a>
-    </li>
-  </ul>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#contacts" role="tab">Адреса и телефоны</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#accounts" role="tab">Счёт и контактные лица</a>
+                    </li>
+                </ul>
 
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div class="tab-pane active" id="contacts" role="tabpanel">
-      <div class="form-group" *ngIf="caseData != null">
-        <div>
-          <h5></h5>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="contacts" role="tabpanel">
+                        <div class="form-group" *ngIf="caseData != null">
+                            <div>
+                                <h5></h5>
+                            </div>
+                            <gp-contactList [contacts]="caseData.content.ContactList"></gp-contactList>
+                            <gp-addressList [addresses]="caseData.content.AddressList"></gp-addressList>
+
+                        </div>
+
+                        <div class="row row-content">
+                            <button type="submit" class="btn btn-warning" name="button" (click)="onSubmit()">Подтвердить</button>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="accounts" role="tabpanel">
+                        <div *ngIf="caseData != null">
+                          <h5>Счет</h5>
+                            <gp-client-accounts-info [client]="caseData.content"></gp-client-accounts-info>
+                                                      <h5>Контактное лицо</h5>
+                            <div *ngFor="let contact of caseData.content.Parties; let i = index;">
+                              <gp-addressList [addresses]="contact.Party"></gp-addressList>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- END Tab panes -->
+            <div class="row gp-container">
+                <div *ngIf="caseData != null">
+                    <h5>Сделки</h5>
+                    <div class="form-group" *ngFor="let childCase of caseData.childCases">
+                        <i class="fa fa-external-link" aria-hidden="true" style="font-size:30px"></i><span style="cursor:pointer" (click)="onRequestClicked(childCase.ID)">{{childCase.ID}}</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <gp-contactList [contacts]="caseData.content.ContactList"></gp-contactList>
-        <gp-addressList [addresses]="caseData.content.AddressList"></gp-addressList>
-
-    </div>
-
-    <div class="row row-content">
-      <button type="submit" class="btn btn-warning" name="button" (click)="onSubmit()">Подтвердить</button>
-    </div>
-
-  </div>
-
-  <div class="tab-pane" id="accounts" role="tabpanel">
-
-    <div *ngIf="caseData != null">
-      <label for="BIK">БИК</label>
-      <input type="text" name="BIK" [value]="caseData.content.BIK" (input)="caseData.content.BIK=$event.target.value" id="BIK" class="form-control">
-
-      <label for="Bank">Наименование банка</label>
-      <input type="text" name="Bank" [value]="caseData.content.Bank" (input)="caseData.content.Bank=$event.target.value" id="Bank" class="form-control">
-
-      <label for="CorrAccount">Корреспондентский счёт</label>
-      <input type="text" name="Bank" [value]="caseData.content.CorrAccount" (input)="caseData.content.CorrAccount=$event.target.value" id="CorrAccount" class="form-control">
-    </div>
-  </div>
-
-</div>
-
-</div>
-  <!-- END Tab panes -->
-  <div class="row gp-container">
-      <div *ngIf="caseData != null">
-        <h5>Сделки</h5>
-        <div class="form-group" *ngFor="let childCase of caseData.childCases">
-          <i class="fa fa-external-link" aria-hidden="true" style="font-size:30px"></i><span style="cursor:pointer" (click)="onRequestClicked(childCase.ID)">{{childCase.ID}}</span>
+        <div class="col-sm-6" *ngIf="caseData!= null && caseData_ru != null">
+            <div class="gp-container">
+                <gp-client-general-info [client]="caseData.content" [client_ru]="caseData_ru" style="cursor:pointer" (initClient)="initClient($event)" (closeClient)="closeClient($event)"></gp-client-general-info>
+            </div>
         </div>
-      </div>
-  </div>
-
-</div>
-<div class="col-sm-6" *ngIf="caseData!= null && caseData_ru != null">
-  <div class="gp-container">
-    <gp-client-general-info [client] = "caseData.content" [client_ru] = "caseData_ru" style="cursor:pointer" (initClient) = "initClient($event)" (closeClient)="closeClient($event)"></gp-client-general-info>
-  </div>
-</div>
-</div>
+    </div>
 
 
 </div>

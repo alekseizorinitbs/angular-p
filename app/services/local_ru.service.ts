@@ -5,9 +5,9 @@ import {GPNClientContent} from '../model/gpn_client.model'
 @Injectable()
 export class Local_RU{
 
-  localize_GPNClient(case_ : GPNBase) : GPNClientContent{
+  localize_GPNClient(case_ : GPNBase) : GPNBaseContent{
 
-    let content_ru = new GPNClientContent();
+    let content_ru = new GPNBaseContent();
 
     switch (case_.content.pyStatusWork){
       case "New": content_ru.pyStatusWork = "Ввод данных";

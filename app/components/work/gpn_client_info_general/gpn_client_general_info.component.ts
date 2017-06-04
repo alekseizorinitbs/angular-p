@@ -25,7 +25,6 @@ export class GPN_Client_General_Info_Component implements OnInit{
   }
 
   ngOnInit(){
-    console.log(this.client_ru);
   }
 
   initClientCall(b){
