@@ -1,8 +1,8 @@
 <div class="media">
-  <img class="d-flex mr-3" src="./dist/app/images/azs.png" alt="Generic placeholder image">
+
   <div class="media-body">
     <h5 class="mt-0" (click)="onClick()">{{client.pyLabel}}</h5>
-    <span class="badge badge-pill badge-info" style="margin-bottom:20px">{{client.pyStatusWork}}</span>
+    <span class="badge badge-pill badge-info" style="margin-bottom:10px">{{client.pyStatusWork}}</span>
     <br />
     <div *ngIf="client.pySummaryCount[0] > 0">
       Количество открытых сделок <span class="badge badge-pill badge-danger">{{client.pySummaryCount[0]}}</span>

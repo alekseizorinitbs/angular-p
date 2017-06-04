@@ -1,8 +1,8 @@
 <div class="col-xs-12">
+  <h5 *ngIf="caseData != null">{{caseData.content.pyLabel}}</h5>
     <div class="row" *ngIf="caseData != null">
-
         <div class="col-xs-12 col-sm-6">
-            <h5>{{caseData.content.pyLabel}}</h5>
+
             <div class="gp-container">
 
                 <ul class="nav nav-tabs" role="tablist">
@@ -22,13 +22,9 @@
                             <div>
                                 <h5></h5>
                             </div>
-                            <gp-contactList [contacts]="caseData.content.ContactList"></gp-contactList>
-                            <gp-addressList [addresses]="caseData.content.AddressList"></gp-addressList>
+                            <gp-contactList [contacts]="caseData.content.ContactList" [readOnly]="isReadOnly"></gp-contactList>
+                            <gp-addressList [addresses]="caseData.content.AddressList" [readOnly]="isReadOnly"></gp-addressList>
 
-                        </div>
-
-                        <div class="row row-content">
-                            <button type="submit" class="btn btn-warning" name="button" (click)="onSubmit()">Подтвердить</button>
                         </div>
 
                     </div>
@@ -36,10 +32,10 @@
                     <div class="tab-pane" id="accounts" role="tabpanel">
                         <div *ngIf="caseData != null">
                           <h5>Счет</h5>
-                            <gp-client-accounts-info [client]="caseData.content"></gp-client-accounts-info>
+                            <gp-client-accounts-info [client]="caseData.content" [readOnly]="isReadOnly"></gp-client-accounts-info>
                                                       <h5>Контактное лицо</h5>
                             <div *ngFor="let contact of caseData.content.Parties; let i = index;">
-                              <gp-addressList [addresses]="contact.Party"></gp-addressList>
+                              <gp-addressList [addresses]="contact.Party" [readOnly]="isReadOnly"></gp-addressList>
                             </div>
                         </div>
 

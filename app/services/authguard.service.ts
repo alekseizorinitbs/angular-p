@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core'
 import {CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router'
-import {CacheService} from 'ng2-cache/ng2-cache'
+import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 import {Observable, Subject} from 'rxjs/Rx'
 import {Http, RequestOptions, Headers} from '@angular/http'
 
@@ -16,7 +16,7 @@ export class AuthenticatedGuard implements CanActivate {
 
     public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-
+      this.cacheService.useStorage(CacheStoragesEnum.LOCAL_STORAGE);
         if (!this.cacheService.get('isAuthenticated')) {
             this.router.navigate(["/login"]);
             return false;

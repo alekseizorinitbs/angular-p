@@ -1,4 +1,4 @@
-<div class="gp-separator">
+<div class="gp-separator" *ngIf = "!readOnly">
     <div *ngFor="let contact of contacts; let i = index;" class="row" (keypress)="handleKeypress($event)">
 
         <label *ngIf="_new[i] == false" class="col-xs-12 col-sm-4">{{contact.pyLabel}}</label>
@@ -8,4 +8,11 @@
         <button type="button" name="button" class="btn btn-info" (click)="onDelete(i)">-</button>
     </div>
     <button type="button" name="button" class="btn btn-success" (click)="onAdd()">+</button>
+</div>
+
+<div class="gp-separator" *ngIf = "readOnly">
+    <div *ngFor="let contact of contacts; let i = index;" class="row" (keypress)="handleKeypress($event)">
+        <label *ngIf="_new[i] == false" class="col-xs-12 col-sm-4">{{contact.pyLabel}}</label>
+        <span class="col-xs-12 col-sm-4">{{contact.pyPhoneNumber}}</span>
+    </div>
 </div>

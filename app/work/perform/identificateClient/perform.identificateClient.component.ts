@@ -25,6 +25,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     caseData: GPNClient = null;
     caseData_ru = new Object();
     assignmentData: any = null;
+    isReadOnly: boolean = true;
 
     childAssignments = [];
 
@@ -61,9 +62,12 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
               let child = this.caseData.childCases[i];
               this.childAssignments.push({caseId:child.ID, name:'Сделка ' + child.ID.substring(child.ID.lastIndexOf(' '))});
             }
-
           this.removeUndefined();
 
+          if (this.caseData.content.pyStatusWork == 'New')
+            this.isReadOnly = false;
+            else
+              this.isReadOnly = true;
 
         });
       })

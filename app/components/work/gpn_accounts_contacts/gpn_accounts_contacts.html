@@ -1,26 +1,31 @@
 
 <div class="row">
   <span class ="col-xs-12 col-sm-4">БИК:</span>
-  <input type="text" [value]="client.BIK" class="col-xs-12 col-sm-6 form-control">
+  <input *ngIf="!readOnly" type="text" [value]="client.BIK" class="col-xs-12 col-sm-6 form-control" (input)="client.BIK = $event.target.value">
+  <span *ngIf="readOnly" class="col-xs-12 col-sm-6">{{client.BIK}}</span>
 </div>
 
 <div class="row">
   <span class ="col-xs-12 col-sm-4">Наименование банка:</span>
-  <input type="text" [value]="client.Bank" class="col-xs-12 col-sm-6 form-control">
+  <input *ngIf="!readOnly" type="text" [value]="client.Bank" class="col-xs-12 col-sm-6 form-control" (input)="client.Bank = $event.target.value">
+    <span *ngIf="readOnly" class="col-xs-12 col-sm-6">{{client.Bank}}</span>
 </div>
 
 <div class="row">
   <span class ="col-xs-12 col-sm-4">Корреспондентский счёт:</span>
-  <input type="text" [value]="client.CorrAccount" class="col-xs-12 col-sm-6 form-control">
+  <input *ngIf="!readOnly" type="text" [value]="client.CorrAccount" class="col-xs-12 col-sm-6 form-control" (input)="client.CorrAccount = $event.target.value">
+    <span *ngIf="readOnly" class="col-xs-12 col-sm-6">{{client.CorrAccount}}</span>
 </div>
 
 
 <div class="row">
   <span class ="col-xs-12 col-sm-4">Расчётный счёт:</span>
-  <input type="text"  [value]="client.BillAccount" class="col-xs-12 col-sm-6 form-control">
+  <input *ngIf="!readOnly" type="text"  [value]="client.BillAccount" class="col-xs-12 col-sm-6 form-control" (input)="client.BillAccount = $event.target.value">
+    <span *ngIf="readOnly" class="col-xs-12 col-sm-6">{{client.BillAccount}}</span>
 </div>
 
 <div class="row">
   <span class ="col-xs-12 col-sm-4">Валюта:</span>
-  <input type="text" [value]="client.Currency" class="col-xs-12 col-sm-6 form-control">
+  <input *ngIf="!readOnly" type="text" [value]="client.Currency" class="col-xs-12 col-sm-6 form-control" (input)="client.Currency = $event.target.value">
+    <span *ngIf="readOnly" class="col-xs-12 col-sm-6">{{client.Currency}}</span>
 </div>

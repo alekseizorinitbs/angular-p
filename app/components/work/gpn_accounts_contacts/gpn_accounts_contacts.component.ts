@@ -14,6 +14,8 @@ export class GPN_Accounts_Contacts_Component implements OnInit{
   client: GPNClientContent;
   @Input()
   client_ru: Local_RU;
+  @Input()
+  readOnly: boolean = true;
 
 
   constructor(){
