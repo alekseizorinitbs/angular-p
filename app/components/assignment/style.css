@@ -3,14 +3,14 @@ h5{
 }
 
 .media{
-  box-shadow: -5px -5px 10px rgba(128, 128, 128, 0.42);
+  box-shadow: -1px -1px 15px rgba(128, 128, 128, 0.42);
   margin: 10px;
   padding: 5px;
 }
 
 .gp-container form{
   padding: 20px;
-  box-shadow: 2px 2px 8px #888888;
+  box-shadow: 5px 5px 8px #888888;
   background-color: rgba(0, 0, 0, 0.02);
   margin: 10px;
 }

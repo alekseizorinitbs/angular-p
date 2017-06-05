@@ -31,6 +31,12 @@
                               <span  class="col-xs-12 col-sm-8" *ngIf="isReadOnly">{{caseData.content.ServiceRegion}}</span>
                             </div>
 
+                            <div class="row" style="margin-top: 15px;">
+                              <span class="col-xs-12 col-sm-4">Сегмент обслуживания:</span>
+                              <input  class="form-control col-xs-12 col-sm-8" *ngIf="!isReadOnly" type="text" [value]="caseData.content.Segment" (input)="caseData.content.Segment = $event.target.value" >
+                              <span  class="col-xs-12 col-sm-8" *ngIf="isReadOnly">{{caseData.content.Segment}}</span>
+                            </div>
+
                         </div>
 
                     </div>

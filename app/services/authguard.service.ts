@@ -25,7 +25,7 @@ export class AuthenticatedGuard implements CanActivate {
         }
     }
 
-    onAuthenticated(cred):boolean{
+    onAuthenticated(cred){
 
         let headers = new Headers({ 'Content-Type': 'application/json' , 'Authorization':cred});
         let options = new RequestOptions({ headers: headers });
@@ -37,8 +37,6 @@ export class AuthenticatedGuard implements CanActivate {
           return true;
         },
         (err) => {return false});
-
-        return false;
 /*
 */
     }

@@ -14,6 +14,8 @@ export class Local_RU{
       break;
       case "Open": content_ru.pyStatusWork = "Клиент идентифицирован";
       break;
+      case "Pending-External": content_ru.pyStatusWork = "Ожидаются документы";
+      break;
     }
 
     return content_ru;

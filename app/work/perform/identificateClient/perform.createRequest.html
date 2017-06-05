@@ -8,10 +8,12 @@
         <div class="row">
             <div class="gp-container col-xs-12 col-sm-12">
                 <div class="row">
-                    <span>Регион обслуживания: {{caseData.content.ServiceRegion}}</span>
+                    <span class ="col-xs-12 col-sm-4">Регион обслуживания: </span>
+                    <span>{{caseData.content.ServiceRegion}}</span>
                 </div>
                 <div class="row">
-                    <span>Оффис: {{caseData.content.ServiceOffice}}</span>
+                    <span class ="col-xs-12 col-sm-4">Офис:</span>
+                    <span> {{caseData.content.ServiceOffice}}</span>
                 </div>
             </div>
         </div>
@@ -20,7 +22,7 @@
             <div class="gp-container col-xs-12 col-sm-12">
                 <div *ngIf="attachedDocs != null">
                     <div *ngFor="let doc_ of attachedDocs.pxResults; let i = index" class="row row-content">
-                        <i (click)="onDownloadDoc(i)" class="fa fa-file-word-o" style="font-size: 30; cursor: pointer;"></i><span style="font-size: 25">  {{doc_.pyLabel}}</span>
+                        <i (click)="onDownloadDoc(i)" class="fa fa-file-pdf-o" style="font-size: 30; cursor: pointer; color:red;"></i><span style="font-size: 25">  {{doc_.pyLabel}}</span>
                     </div>
                 </div>
             </div>
