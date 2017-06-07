@@ -46,7 +46,6 @@ constructor(private _http: Http, private _authGuard: AuthenticatedGuard, private
   }
 
   performAssignment(_assignment: any, id, actionID) {
-          console.log(id)
 
     return this._http.post(this._url + 'assignments/' + id + '/?actionID=' + actionID, JSON.stringify(_assignment), this.options)
     .map(data => data.json());

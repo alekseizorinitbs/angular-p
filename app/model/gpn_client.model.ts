@@ -11,6 +11,8 @@ export class GPNClientContent extends GPNBaseContent{
   BillAccount;
   Currency;
   BIK;
+  ServiceRegion;
+  ServiceOffice;
 }
 
 export class GPNClient extends GPNBase{

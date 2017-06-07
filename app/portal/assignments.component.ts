@@ -18,6 +18,7 @@ export class AssignmentsComponent implements OnInit{
 
   assignments : Assignments = null;
   clients;
+  searchString="";
 
     constructor(private _caseService: CaseService, private _assignmentService: AssignmentService){
     }

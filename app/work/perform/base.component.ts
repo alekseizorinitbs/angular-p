@@ -30,14 +30,12 @@ export class AssignmentPerformBaseComponent implements OnInit {
   protected assignmentService: AssignmentService,
   protected activatedRouter: ActivatedRoute, protected cacheService: CacheService){
     this.caseService.parentCase$.subscribe(newCaseData =>{
-      console.log(newCaseData);
       this.caseData = newCaseData;
     });
   }
 
 
   reInit(){
-    console.log("reinit called");
   }
 
   ngOnInit(){

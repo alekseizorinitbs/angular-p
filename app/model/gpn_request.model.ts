@@ -1,6 +1,6 @@
-import {Data_Party, Data_Address} from './gpn_base.model'
+import {Data_Party, Data_Address, GPNBase, GPNBaseContent} from './gpn_base.model'
 
-export class GPNRequestContent{
+export class GPNRequestContent extends GPNBaseContent{
   FuelType;
   FuelConsumption;
   ServiceOffice;
@@ -27,7 +27,7 @@ export class GPNRequestContent{
   Segment;
 }
 
-export class GPNRequest{
+export class GPNRequest extends GPNBase{
   caseTypeID : String;
   processID: String;
   parentCaseID;
@@ -35,6 +35,7 @@ export class GPNRequest{
   assignments;
 
   constructor(){
+    super();
     this.content = new GPNRequestContent();
     this.content.Industry = "";
     this.content.Currency="";

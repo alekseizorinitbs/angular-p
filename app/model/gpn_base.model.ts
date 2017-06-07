@@ -1,4 +1,7 @@
 export class GPNBaseContent{
+  pyID;
+  pyLabel;
+  pySelected;
   pyWorkParty;
   pyStatusWork;
   IsStateFinanced;

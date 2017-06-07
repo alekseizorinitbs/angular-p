@@ -1,8 +1,8 @@
-import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, AfterViewInit, Input, OnInit, ViewEncapsulation, OnDestroy} from '@angular/core';
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 import { RouterModule, Router, ActivatedRoute, Params } from '@angular/router';
 import {CaseService} from '../services/case.service'
-import {Observable} from 'rxjs/Rx'
+import {Observable, Subject} from 'rxjs/Rx'
 import {Http} from '@angular/http'
 import {AssignmentService} from '../services/assignment.service'
 import {AuthenticatedGuard} from '../services/authguard.service'
@@ -13,13 +13,17 @@ import {AuthenticatedGuard} from '../services/authguard.service'
   encapsulation: ViewEncapsulation.None
 })
 
-export class LoginComponent{
+export class LoginComponent implements OnDestroy{
 
 loginOK = true;
+private loginOKUnsub = new Subject<boolean>();
 
   constructor (protected caseService: CaseService, protected router: Router,
   protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
 protected cacheService: CacheService, private authService: AuthenticatedGuard){
+   this.authService.authenticates$.takeUntil(this.loginOKUnsub).subscribe(data => {
+    this.loginOK = data;
+  });
   }
 
   login(login_,password){
@@ -31,9 +35,7 @@ protected cacheService: CacheService, private authService: AuthenticatedGuard){
     var authdata = "Basic " + this.encode(login_ + ':' + password);
 
     // TODO: int with pega
-    if (!this.authService.onAuthenticated(authdata))
-      this.loginOK = false;
-      else this.loginOK = true;
+    this.authService.onAuthenticated(authdata);
   }
 
   encode(input){
@@ -116,6 +118,11 @@ protected cacheService: CacheService, private authService: AuthenticatedGuard){
     } while (i < input.length);
 
     return output;
+  }
+
+  ngOnDestroy(){
+    this.loginOKUnsub.next();
+    this.loginOKUnsub.complete();
   }
 
 }

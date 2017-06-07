@@ -9,6 +9,7 @@ import {Assignment} from '../../../model/assignments.model'
 import {AssignmentService} from '../../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 import {Local_RU} from '../../../services/local_ru.service'
+import {DictService} from '../../../services/dict.service'
 
 @Component({
   selector: 'gp-client_perform',
@@ -26,12 +27,13 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     caseData_ru = new Object();
     assignmentData: any = null;
     isReadOnly: boolean = true;
+    cities;
 
     childAssignments = [];
 
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
-  protected cacheService: CacheService, private _localRuService: Local_RU){
+  protected cacheService: CacheService, private _localRuService: Local_RU, private _dict: DictService){
 
     }
 
@@ -50,7 +52,6 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     ngOnInit(){
 
       this.activatedRouter.params.subscribe(params => {
-        console.log(params);
         this.caseService.getCase(params['assignmentId']).subscribe(caseData =>
         {
           this.caseData = caseData;
@@ -70,7 +71,11 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
               this.isReadOnly = true;
 
         });
-      })
+      });
+
+      this._dict.getCities().subscribe(data => {
+        this.cities = data;
+      });
 
     }
 
@@ -106,7 +111,6 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
         }
 
         this.caseData.content.pyWorkParty = {};
-        console.log(this.caseData.content);
     }
 
     initClient(e){
@@ -118,8 +122,11 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
 
     closeClient(e){
       this.caseService.launchLocalAction(this.caseData, "TerminateClient").subscribe(data =>{
-        console.log(data);
           this.router.navigate(['assignments']);
       });
+    }
+
+    regionSelected(e){
+      this.caseData.content.ServiceRegion = e;
     }
 }

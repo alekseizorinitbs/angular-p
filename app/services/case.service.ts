@@ -78,7 +78,6 @@ private _urlExtra = "https://localhost:8443/prweb/PRRestService/GPNDataManager/G
   launchLocalAction(_case: GPNBase, actionId): Observable<any>{
     let etag = _case.lastUpdateTime;
     etag = '"' + etag.replace(/-/g,'').replace(/Z/g, ' GMT').replace(/:/g,'') + '"';
-    console.log(etag);
 
     let headers = new Headers({ 'Content-Type': 'application/json', 'Authorization':this._cacheService.get('creds'), 'If-Match' : etag});
     let options = new RequestOptions({ headers: headers });

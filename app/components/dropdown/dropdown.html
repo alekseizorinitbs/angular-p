@@ -1,0 +1,9 @@
+<div class="dropdown" *ngIf="!readOnly">
+  <button class="btn btn-secondary dropdown-toggle btn-sm-6" id="dropdownId" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{selectedOption}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" *ngFor="let res of source.pxResults; let i = index;" (click)="onClick(i)">{{res.Label}}</a>
+  </div>
+</div>
+<span *ngIf="readOnly">{{selectedOption}}</span>

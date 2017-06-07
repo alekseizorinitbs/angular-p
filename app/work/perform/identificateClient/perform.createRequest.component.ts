@@ -66,10 +66,8 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
           this.caseData.content.pyWorkParty = {};
           this.removeUndefined();
           let pyID = params['assignmentId'].substring(params['assignmentId'].lastIndexOf(' ') + 1);
-          console.log(pyID);
           this.caseService.getAttachedDocuments(pyID).subscribe(docs =>{
             this.attachedDocs = docs;
-            console.log(docs);
           });
         });
 
@@ -98,7 +96,6 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
 
     onCloseRequest(e){
       this.caseService.launchLocalAction(this.caseData, "TerminateRequest").subscribe(data =>{
-        console.log(data);
           this.router.navigate(['assignments']);
       });
     }

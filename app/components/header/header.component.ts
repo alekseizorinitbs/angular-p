@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit{
     private _router: Router, private _authGuard: AuthenticatedGuard) {
         this._authGuard.authenticates$.subscribe(result => {
           this.isAuthenticated = result;
-          console.log(result);
         });
     }
 
