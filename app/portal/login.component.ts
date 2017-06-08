@@ -21,7 +21,7 @@ private loginOKUnsub = new Subject<boolean>();
   constructor (protected caseService: CaseService, protected router: Router,
   protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
 protected cacheService: CacheService, private authService: AuthenticatedGuard){
-   this.authService.authenticates$.takeUntil(this.loginOKUnsub).subscribe(data => {
+   this.authService.authenticates$.subscribe(data => {
     this.loginOK = data;
   });
   }
@@ -121,8 +121,7 @@ protected cacheService: CacheService, private authService: AuthenticatedGuard){
   }
 
   ngOnDestroy(){
-    this.loginOKUnsub.next();
-    this.loginOKUnsub.complete();
+
   }
 
 }

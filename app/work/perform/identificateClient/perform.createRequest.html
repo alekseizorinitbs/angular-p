@@ -8,12 +8,12 @@
         <div class="row">
             <div class="gp-container col-xs-12 col-sm-12">
                 <div class="row">
-                    <span class ="col-xs-12 col-sm-4">Регион обслуживания: </span>
-                    <span>{{caseData.content.ServiceRegion}}</span>
+                    <span class ="col-xs-12 col-sm-3">Регион обслуживания: </span>
+                    <gp-dropdown style="padding-left: 0;" *ngIf="cities != null" [readOnly]="true" [source]="cities" [inputSelectedId]="caseData.content.ServiceRegion" class="col-xs-12 col-sm-8"></gp-dropdown>
                 </div>
                 <div class="row">
-                    <span class ="col-xs-12 col-sm-4">Офис:</span>
-                    <span> {{caseData.content.ServiceOffice}}</span>
+                    <span class ="col-xs-12 col-sm-3">Офис:</span>
+                    <span style="padding-left:15px;"> {{caseData.content.ServiceOffice}}</span>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="gp-container col-xs-12 col-sm-12">
                 <div *ngIf="attachedDocs != null">
                     <div *ngFor="let doc_ of attachedDocs.pxResults; let i = index" class="row row-content">
-                        <i (click)="onDownloadDoc(i)" class="fa fa-file-pdf-o" style="font-size: 30; cursor: pointer; color:red;"></i><span style="font-size: 25">  {{doc_.pyLabel}}</span>
+                        <i (click)="onDownloadDoc(i)" class="fa fa-file-pdf-o" style="font-size: 35; cursor: pointer; color:red;"></i><span style="font-size: 23; padding-left: 15px;">  {{doc_.pyLabel}}</span>
                     </div>
                 </div>
             </div>

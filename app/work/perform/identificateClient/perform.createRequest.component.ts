@@ -8,6 +8,7 @@ import {Assignment} from '../../../model/assignments.model'
 import {AssignmentService} from '../../../services/assignment.service'
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache'
 import {Local_RU} from '../../../services/local_ru.service'
+import {DictService} from '../../../services/dict.service'
 
 @Component({
   selector: 'gp-assignment1',
@@ -25,10 +26,11 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
     caseData_ru = new Object();
     caseData: GPNRequest = null;
     assignmentData: any = null;
+    cities;
 
     constructor (protected caseService: CaseService, protected router: Router,
     protected assignmentService: AssignmentService, protected activatedRouter: ActivatedRoute,
-  protected cacheService: CacheService, private _localRuService: Local_RU){
+  protected cacheService: CacheService, private _localRuService: Local_RU, private _dict: DictService){
 
     }
 
@@ -71,6 +73,9 @@ export class Assignment_Perform_CreateRequest_Component implements OnInit{
           });
         });
 
+        this._dict.getCities().subscribe(data => {
+          this.cities = data;
+        });
 
       })
 

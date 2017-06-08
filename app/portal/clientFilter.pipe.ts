@@ -6,12 +6,12 @@ import {Pipe, PipeTransform} from '@angular/core'
 })
 
 export class ClientFilterPipe{
-    transform(items: any[], filter: Object): any {
+    transform(items: any[], filter: String): any {
       if (!items || !filter) {
           return items;
       }
       console.log(items);
       // filter items array, items which match and return true will be kept, false will be filtered out
-      return items.filter(item => item.pyLabel.indexOf(filter) !== -1);
+      return items.filter(item => item.pyLabel.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
   }
 }

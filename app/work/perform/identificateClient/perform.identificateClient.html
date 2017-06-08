@@ -24,11 +24,17 @@
                             </div>
                             <gp-contactList [contacts]="caseData.content.ContactList" [readOnly]="isReadOnly"></gp-contactList>
                             <gp-addressList [addresses]="caseData.content.AddressList" [readOnly]="isReadOnly"></gp-addressList>
-                            <div class="row" style="margin-top: 15px;">
+
+                        <div class="row" style="margin-top: 15px;">
                               <span class="col-xs-12 col-sm-4">Регион обслуживания:</span>
-                              <gp-dropdown *ngIf="cities != null" [readOnly]="isReadOnly" [source]="cities" [inputSelectedId]="caseData.content.ServiceRegion" class="col-xs-12 col-sm-8" (selected)="regionSelected($event)"></gp-dropdown>
+                              <gp-dropdown style="padding-left:0;" *ngIf="cities != null" [readOnly]="isReadOnly" [source]="cities" [inputSelectedId]="caseData.content.ServiceRegion" class="col-xs-12 col-sm-8" (selected)="regionSelected($event)"></gp-dropdown>
                         </div>
 
+                            <div class="row" style="margin-top: 15px;">
+                              <span class="col-xs-12 col-sm-4">Офис:</span>
+                              <input  class="form-control col-xs-12 col-sm-8" *ngIf="!isReadOnly" type="text" [value]="caseData.content.ServiceOffice" (input)="caseData.content.ServiceOffice = $event.target.value" >
+                              <span  class="col-xs-12 col-sm-8" *ngIf="isReadOnly">{{caseData.content.ServiceOffice}}</span>
+                            </div>
                             <div class="row" style="margin-top: 15px;">
                               <span class="col-xs-12 col-sm-4">Сегмент обслуживания:</span>
                               <input  class="form-control col-xs-12 col-sm-8" *ngIf="!isReadOnly" type="text" [value]="caseData.content.Segment" (input)="caseData.content.Segment = $event.target.value" >
@@ -66,7 +72,7 @@
         </div>
         <div class="col-sm-6" *ngIf="caseData!= null && caseData_ru != null">
             <div class="gp-container">
-                <gp-client-general-info [client]="caseData.content" [client_ru]="caseData_ru" style="cursor:pointer" (initClient)="initClient($event)" (closeClient)="closeClient($event)"></gp-client-general-info>
+                <gp-client-general-info [client]="caseData.content" [client_ru]="caseData_ru" (initClient)="initClient($event)" (closeClient)="closeClient($event)"></gp-client-general-info>
             </div>
         </div>
     </div>
