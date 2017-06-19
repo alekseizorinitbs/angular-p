@@ -88,7 +88,7 @@ export class Assignment_Perform_InitializeClient_Component implements OnInit{
     }
 
     localizePyStatusWork(caseData){
-        this.caseData_ru = this._localRuService.localize_GPNClient(caseData);
+        this.caseData_ru = this._localRuService.localize_GPNClient(caseData.content);
       }
 
       onRequestClicked(id){

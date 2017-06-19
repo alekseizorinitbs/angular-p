@@ -61,10 +61,10 @@
             </div>
             <!-- END Tab panes -->
             <div class="row gp-container">
-                <div *ngIf="caseData != null">
+                <div *ngIf="childAssignments != null">
                     <h5>Сделки</h5>
-                    <div class="form-group" *ngFor="let childCase of caseData.childCases">
-                        <i class="fa fa-external-link" aria-hidden="true" style="font-size:30px"></i><span style="cursor:pointer" (click)="onRequestClicked(childCase.ID)">{{childCase.ID}}</span>
+                    <div class="form-group" *ngFor="let childCase of childAssignments">
+                        <i class="fa fa-external-link" aria-hidden="true" style="font-size:30px"></i><span style="cursor:pointer" (click)="onRequestClicked(childCase.caseId)">{{childCase.name}}</span>
                     </div>
                 </div>
             </div>

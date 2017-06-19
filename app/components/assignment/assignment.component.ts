@@ -19,6 +19,8 @@ export class AssignmentComponent implements OnInit{
     @Input()
     client;
 
+    caseData_ru = new Object();
+
     constructor(private _caseService: CaseService, private _router: Router,
       private _assignmentService: AssignmentService, private _cacheService : CacheService, private _local_ru: Local_RU){
 
@@ -26,13 +28,15 @@ export class AssignmentComponent implements OnInit{
 
         ngOnInit(){
 
+          this.caseData_ru = this._local_ru.localize_GPNClient(this.client);
+          /*
           switch (this.client.pyStatusWork){
             case "New": this.client.pyStatusWork = "Ввод данных";
             break;
 
             case "Open":  this.client.pyStatusWork = "Клиент идентифицирован";
             break;
-        }
+        }*/
 
     }
 
